@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Kanna 💛</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #fff, #ffeef2, #f5e6e8);
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.section {
+  padding: 80px 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+button {
+  padding: 12px 25px;
+  border: none;
+  background: #ffb6c1;
+  color: white;
+  font-size: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+input {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  color: pink;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1;}
+  100% { transform: translateY(-100vh); opacity: 0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mp3">
+</audio>
+
+<!-- 1. OPENING -->
+<div class="section show">
+  <h1>Hey Birthday Boy 💙</h1>
+  <p>I made something just for you…</p>
+  <p>But first… one rule 😉</p>
+  <button onclick="nextSection('password')">Click here only if you love me 😏</button>
+</div>
+
+<!-- 2. PASSWORD -->
+<div id="password" class="section hidden">
+  <h2>Only special people know the password 😌</h2>
+  <p>Hint: butterflies in my stomach whenever you call me with that name 💛</p>
+  <input type="password" id="pass">
+  <br><br>
+  <button onclick="checkPassword()">Enter</button>
+</div>
+
+<!-- 3. HEART LETTER -->
+<div id="letter" class="section hidden">
+  <h2>My Heart 💛</h2>
+  <p>
+My dear kanna…<br><br>
+
+From the moment you stepped into my life, everything changed—became softer, calmer, and so much more beautiful. You didn’t just become a part of my life… you became a part of me. It feels like I found another version of my own soul in you.<br><br>
+
+I feel truly blessed—more than words can ever express—to have you by my side. You are the kind of love every girl dreams of, but I’m the one who gets to live it.<br><br>
+
+So stay… now, always, and forever. Because life with you is everything I never knew I needed, yet now I can’t imagine without. 💛
+  </p>
+</div>
+
+<!-- 4. 10 THINGS -->
+<div id="love" class="section hidden">
+  <h2>10 Things I Love About You 💛</h2>
+  <p>
+<b>Your eyes</b><br>
+The way they look into mine… so deep, so intense.<br><br>
+
+<b>The way you treat me</b><br>
+Like I’m your little girl—so gentle and protective.<br><br>
+
+<b>Your patience with me</b><br>
+You choose love over ego.<br><br>
+
+<b>Your softness</b><br>
+You never raise your voice.<br><br>
+
+<b>The way you admire me 😉</b><br>
+You make me feel beautiful.<br><br>
+
+<b>The way you listen</b><br>
+Even nonsense matters to you.<br><br>
+
+<b>The names you call me</b><br>
+Amma, Thalli, Bangaram, Chinnamma, Chinthalli 💛<br><br>
+
+<b>Your heart for me</b><br>
+You can’t bear my tears.<br><br>
+
+<b>Your love in my storms</b><br>
+You stay even when I hurt you.<br><br>
+
+<b>The way you make me feel</b><br>
+Like I’m the most special person God created.
+  </p>
+</div>
+
+<!-- 5. PHOTOS -->
+<div id="photos" class="section hidden">
+  <h2>Our Memories 📸</h2>
+  <img src="photo1.jpg" width="200"><br><br>
+  <img src="photo2.jpg" width="200"><br><br>
+</div>
+
+<!-- 6. BIRTHDAY MESSAGE -->
+<div id="bday" class="section hidden">
+  <h2>Happy Birthday 💛</h2>
+  <p>
+Happy birthday, my dear kanna 💛<br><br>
+
+This is just a small surprise from my side… I hope it brings a smile to your face.<br><br>
+
+You are not ordinary. You are specially created by God with purpose and calling.<br><br>
+
+You are a warrior… and I’m so proud of you.<br><br>
+
+Isaiah 43:19 — “I am doing a new thing…”<br><br>
+
+May this year be filled with God’s favor, strength, and love.<br><br>
+
+Jesus loves you so much, kanna…<br>
+and I love you too 🥹💫
+  </p>
+</div>
+
+<!-- 7. VIDEO -->
+<div id="video" class="section hidden">
+  <h2>One Last Thing 👀</h2>
+  <video width="300" controls>
+    <source src="video.mp4" type="video/mp4">
+  </video>
+  <p>I love you more than this page can ever express 💛</p>
+</div>
+
+<script>
+function nextSection(id) {
+  document.getElementById('password').classList.remove('hidden');
+  document.getElementById('password').classList.add('show');
+}
+
+function checkPassword() {
+  var pass = document.getElementById('pass').value;
+  if(pass === "aurum") {
+    showSections();
+  } else {
+    alert("Wrong password 😜");
+  }
+}
+
+function showSections() {
+  let sections = ['letter','love','photos','bday','video'];
+  sections.forEach((id, index) => {
+    setTimeout(() => {
+      document.getElementById(id).classList.remove('hidden');
+      document.getElementById(id).classList.add('show');
+    }, index * 1500);
+  });
+}
+
+/* Floating hearts */
+setInterval(() => {
+  let heart = document.createElement("div");
+  heart.innerHTML = "💖";
+  heart.className = "heart";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}, 500);
+</script>
+
+</body>
+</html>
